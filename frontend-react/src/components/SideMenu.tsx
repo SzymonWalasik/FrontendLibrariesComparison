@@ -19,6 +19,12 @@ const SideMenu: React.FC = () => {
                     <Menu.Item key="2">
                         <Link to="/carousel">Carousel</Link>
                     </Menu.Item>
+                    <Menu.Item key="3">
+                        <Link to="/lazy">Lazy</Link>
+                    </Menu.Item>
+                    <Menu.Item key="4">
+                        <Link to="/delay">Delayed form</Link>
+                    </Menu.Item>
                 </Menu>
             )}
         </Sider>

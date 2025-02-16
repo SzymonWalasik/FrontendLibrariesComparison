@@ -4,6 +4,8 @@ import { Layout } from "antd";
 import SideMenu from "./components/SideMenu";
 import DashboardPage from "./pages/DashboardPage";
 import CarouselPage from "./pages/CarouselPage";
+import LazyPage from "./pages/LazyPage";
+import DelayedFormPage from "./pages/DelayedFormPage";
 
 const App: React.FC = () => {
   return (
@@ -14,6 +16,8 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<DashboardPage />} />
             <Route path="/carousel" element={<CarouselPage />} />
+            <Route path="/lazy" element={<LazyPage />} />
+            <Route path="/delay" element={<DelayedFormPage />} />
           </Routes>
         </Layout.Content>
       </Layout>
