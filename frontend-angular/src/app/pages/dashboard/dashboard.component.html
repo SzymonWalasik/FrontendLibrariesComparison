@@ -1,0 +1,23 @@
+<h1>Performance Testing Dashboard</h1>
+<button nz-button (click)="sortOrder = sortOrder === 'ascend' ? 'descend' : 'ascend'; fetchData()">Sort</button>
+<button nz-button (click)="visible = true">Add Record</button>
+
+<nz-table #basicTable [nzData]="data" [nzBordered]="true" [nzLoading]="loading">
+  <thead>
+    <tr>
+      <th nzWidth="25%" nzShowSort [nzSortOrder]="sortOrder" (nzSortChange)="fetchData()">Name</th>
+      <th nzWidth="25%">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of data">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</nz-table>
+
+<nz-modal [(nzVisible)]="visible" nzTitle="Add Record" (nzOnOk)="handleAdd()" (nzOnCancel)="visible = false">
+  <input nz-input placeholder="Name" [(ngModel)]="newRecord.name" />
+  <input nz-input placeholder="Email" [(ngModel)]="newRecord.email" />
+</nz-modal>

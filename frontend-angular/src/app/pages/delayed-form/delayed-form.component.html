@@ -1,0 +1,11 @@
+<div *ngIf="loaded; else loading">
+    <h2>Add New User</h2>
+    <form>
+        <input nz-input placeholder="Name" />
+        <input nz-input placeholder="Email" />
+        <button nz-button>Add User</button>
+    </form>
+</div>
+<ng-template #loading>
+    <h3>Loading form...</h3>
+</ng-template>

@@ -1,0 +1,6 @@
+<div *ngIf="show; else loading">
+    <h2>Lazy Loaded Section</h2>
+</div>
+<ng-template #loading>
+    <h3>Loading section...</h3>
+</ng-template>

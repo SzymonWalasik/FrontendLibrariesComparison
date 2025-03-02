@@ -1,0 +1,11 @@
+<nz-layout style="min-height: 100vh;">
+  <nz-sider [nzCollapsible]="true" [(nzCollapsed)]="isCollapsed" nzTheme="dark">
+    <app-side-menu *ngIf="!isCollapsed"></app-side-menu>
+  </nz-sider>
+
+  <nz-layout>
+    <nz-content style="padding: 20px; background: #fff; min-height: 100vh;">
+      <router-outlet></router-outlet>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
