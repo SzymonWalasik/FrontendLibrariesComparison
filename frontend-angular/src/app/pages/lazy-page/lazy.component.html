@@ -1,6 +1,15 @@
-<div *ngIf="show; else loading">
-    <h2>Lazy Loaded Section</h2>
-</div>
-<ng-template #loading>
-    <h3>Loading section...</h3>
-</ng-template>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <ng-container *ngIf="show; else loading">
+      <nz-card
+        [nzBordered]="false"
+        style="width: 500px; text-align: center; background-color: #1677ff; color: white; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); opacity: 1; transition: opacity 0.5s ease-in-out;"
+      >
+        <h2 nz-typography style="color: white;">Lazy Loaded Section</h2>
+      </nz-card>
+    </ng-container>
+  
+    <ng-template #loading>
+      <h3 nz-typography>Loading section...</h3>
+    </ng-template>
+  </div>
+  

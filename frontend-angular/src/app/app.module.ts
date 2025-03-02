@@ -4,7 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Importy NG-ZORRO
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
@@ -13,6 +13,11 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 // Angular Material Modules
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -33,6 +38,7 @@ import { LazyPageComponent } from './pages/lazy-page/lazy.component';
 import { CommonModule } from '@angular/common';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { RouterModule } from '@angular/router';
+
 
 @NgModule({
     declarations: [
@@ -66,7 +72,14 @@ import { RouterModule } from '@angular/router';
         AppRoutingModule,
         CommonModule,
         NzModalModule,
-        RouterModule
+        RouterModule,
+        NzCardModule,
+        NzTypographyModule,
+        NzInputModule,
+        NzButtonModule,
+        NzMessageModule,
+        ReactiveFormsModule,
+        NzFormModule
     ],
     providers: [NzModalService],
     bootstrap: [AppComponent],

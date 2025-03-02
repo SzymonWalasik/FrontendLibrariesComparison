@@ -1,11 +1,28 @@
-<div *ngIf="loaded; else loading">
-    <h2>Add New User</h2>
-    <form>
-        <input nz-input placeholder="Name" />
-        <input nz-input placeholder="Email" />
-        <button nz-button>Add User</button>
-    </form>
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <ng-container *ngIf="loaded; else loading">
+        <nz-card style="width: 400px; text-align: center; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+            <h2 nz-typography>Add New User</h2>
+            <form nz-form [formGroup]="form" (ngSubmit)="handleSubmit()">
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="24">Name</nz-form-label>
+                    <nz-form-control [nzErrorTip]="'Please enter your name!'">
+                        <input nz-input formControlName="name" placeholder="Enter your name" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-label [nzSpan]="24">Email</nz-form-label>
+                    <nz-form-control [nzErrorTip]="'Please enter a valid email!'">
+                        <input nz-input formControlName="email" type="email" placeholder="Enter your email" />
+                    </nz-form-control>
+                </nz-form-item>
+
+                <button nz-button nzType="primary" [disabled]="form.invalid" style="width: 100%;">Add User</button>
+            </form>
+        </nz-card>
+    </ng-container>
+
+    <ng-template #loading>
+        <h3 nz-typography>Loading form...</h3>
+    </ng-template>
 </div>
-<ng-template #loading>
-    <h3>Loading form...</h3>
-</ng-template>
