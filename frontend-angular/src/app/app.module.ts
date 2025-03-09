@@ -19,15 +19,6 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
 
-// Angular Material Modules
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatTableModule } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 
 //Components
 import { SideMenuComponent } from './components/side-menu.component';
@@ -38,6 +29,7 @@ import { LazyPageComponent } from './pages/lazy-page/lazy.component';
 import { CommonModule } from '@angular/common';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { RouterModule } from '@angular/router';
+import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
 
 
 @NgModule({
@@ -54,14 +46,6 @@ import { RouterModule } from '@angular/router';
         AppRoutingModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        MatSidenavModule,
-        MatListModule,
-        MatTableModule,
-        MatButtonModule,
-        MatInputModule,
-        MatCardModule,
-        MatToolbarModule,
-        MatIconModule,
         NzLayoutModule,
         NzMenuModule,
         NzCarouselModule,
@@ -81,7 +65,7 @@ import { RouterModule } from '@angular/router';
         ReactiveFormsModule,
         NzFormModule
     ],
-    providers: [NzModalService],
+    providers: [NzModalService, { provide: NZ_I18N, useValue: en_US }],
     bootstrap: [AppComponent],
     // schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
