@@ -1,12 +1,13 @@
 <h1 nz-typography>Performance Testing Dashboard</h1>
 
 <div style="margin-bottom: 16px;">
-  <button nz-button (click)="sortOrder = sortOrder === 'ascend' ? 'descend' : 'ascend'; fetchData()">Sort</button>
+  <button nz-button (click)="toggleSort()">Sort</button>
   <button nz-button nzType="primary" (click)="visible = true">Add Record</button>
 </div>
 
-<nz-table #basicTable [nzData]="data" [nzBordered]="true" [nzLoading]="loading" [nzPageSize]="pageSize"
-  [nzPageIndex]="currentPage" [nzShowSizeChanger]="true" (nzPageIndexChange)="handlePaginationChange($event, pageSize)"
+<nz-table #basicTable [nzData]="data" [nzFrontPagination]="false" [nzTotal]="total" [nzBordered]="true"
+  [nzLoading]="loading" [nzPageSize]="pageSize" [nzPageIndex]="currentPage" [nzShowSizeChanger]="true"
+  (nzPageIndexChange)="handlePaginationChange($event, pageSize)"
   (nzPageSizeChange)="handlePaginationChange(currentPage, $event)" [nzShowTotal]="totalTemplate">
   <ng-template #totalTemplate let-total>Total {{ total }} items</ng-template>
   <thead>
