@@ -1,6 +1,10 @@
 <h1>Performance Testing Carousel</h1>
-<nz-carousel nzAutoplay style="margin-left: 25%;">
-    <div nz-carousel-content *ngFor="let img of ['ice.png', 'lightning.png', 'raindrops.png', 'sunset.png']">
-        <img [src]="'assets/' + img" alt="image" />
-    </div>
-</nz-carousel>
+<div style="width: 50%; margin: 0 auto; position: relative;">
+    <nz-carousel nzAutoplay [nzEffect]="carouselConfig.effect" nzDots nzArrows>
+        <div nz-carousel-content *ngFor="let image of images">
+            <div class="carousel-item">
+                <img [src]="image.src" [alt]="image.alt">
+            </div>
+        </div>
+    </nz-carousel>
+</div>

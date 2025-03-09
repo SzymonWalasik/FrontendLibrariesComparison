@@ -12,4 +12,8 @@ export class CarouselPageComponent {
         { src: 'assets/raindrops.png', alt: 'Raindrops' },
         { src: 'assets/sunset.png', alt: 'Sunset' }
     ];
+
+    carouselConfig = {
+        effect: 'scrollx'
+    };
 }

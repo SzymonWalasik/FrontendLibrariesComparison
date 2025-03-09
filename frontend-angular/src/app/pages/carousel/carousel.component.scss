@@ -1,0 +1,15 @@
+.carousel-item {
+    height: 400px;
+    width: fit-content;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
