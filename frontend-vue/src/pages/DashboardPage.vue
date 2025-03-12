@@ -2,11 +2,9 @@
   <div>
     <h1>Performance Testing Dashboard</h1>
     
-    <!-- Sort and Add Record buttons -->
     <a-button @click="toggleSortOrder">Sort</a-button>
     <a-button @click="showAddModal">Add Record</a-button>
 
-    <!-- Table with pagination -->
     <a-table
       :columns="columns"
       :data-source="data"
@@ -15,21 +13,26 @@
       :pagination="pagination"
     />
 
-    <!-- Modal for adding new record -->
     <a-modal
       v-model:visible="visible"
       title="Add Record"
       @ok="handleAdd"
       @cancel="closeModal"
     >
-      <a-input
-        v-model="newRecord.name"
-        placeholder="Name"
-      />
-      <a-input
-        v-model="newRecord.email"
-        placeholder="Email"
-      />
+      <a-form :model="newRecord" layout="vertical">
+        <a-form-item label="Name">
+          <a-input
+            v-model:value="newRecord.name"
+            placeholder="Name"
+          />
+        </a-form-item>
+        <a-form-item label="Email">
+          <a-input
+            v-model:value="newRecord.email"
+            placeholder="Email"
+          />
+        </a-form-item>
+      </a-form>
     </a-modal>
   </div>
 </template>
@@ -56,7 +59,6 @@ export default {
     const pageSize = ref(5);
     const currentPage = ref(1);
 
-    // Fetch data from API
     const fetchData = async () => {
       loading.value = true;
       try {
@@ -73,17 +75,14 @@ export default {
       loading.value = false;
     };
 
-    // Handle sort order toggle
     const toggleSortOrder = () => {
       sortOrder.value = sortOrder.value === 'ascend' ? 'descend' : 'ascend';
     };
 
-    // Show modal to add record
     const showAddModal = () => {
       visible.value = true;
     };
 
-    // Close modal
     const closeModal = () => {
       visible.value = false;
     };
