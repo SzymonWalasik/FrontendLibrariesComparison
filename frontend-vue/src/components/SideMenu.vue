@@ -19,6 +19,9 @@
         <a-menu-item key="4">
           <router-link to="/delay">Delayed form</router-link>
         </a-menu-item>
+         <a-menu-item key="5">
+          <router-link to="/gallery">Gallery</router-link>
+        </a-menu-item>
       </a-menu>
     </template>
   </a-layout-sider>
@@ -44,6 +47,7 @@ export default defineComponent({
       else if (path === '/carousel') return '2';
       else if (path === '/lazy') return '3';
       else if (path === '/delay') return '4';
+      else if (path === '/gallery') return '5';
       return '1';
     });
 
