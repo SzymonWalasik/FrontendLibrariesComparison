@@ -18,6 +18,8 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 
 //Components
@@ -30,6 +32,7 @@ import { CommonModule } from '@angular/common';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { RouterModule } from '@angular/router';
 import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 
 @NgModule({
@@ -39,7 +42,8 @@ import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
         DashboardPageComponent,
         CarouselPageComponent,
         LazyPageComponent,
-        DelayedFormPageComponent
+        DelayedFormPageComponent,
+        GalleryComponent
     ],
     imports: [
         BrowserModule,
@@ -63,7 +67,9 @@ import { en_US, NZ_I18N } from 'ng-zorro-antd/i18n';
         NzButtonModule,
         NzMessageModule,
         ReactiveFormsModule,
-        NzFormModule
+        NzFormModule,
+        NzUploadModule,
+        NzGridModule
     ],
     providers: [NzModalService, { provide: NZ_I18N, useValue: en_US }],
     bootstrap: [AppComponent],

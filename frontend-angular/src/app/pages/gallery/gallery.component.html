@@ -1,0 +1,36 @@
+<div style="padding: 20px;">
+    <nz-row [nzGutter]="16" style="margin-bottom: 20px;">
+        <nz-col>
+            <nz-upload [nzListType]="'picture-card'" [(nzFileList)]="fileList" [nzPreview]="handlePreviewFn"
+                (nzChange)="onFileListChange($event)" [nzBeforeUpload]="beforeUpload">
+                <div *ngIf="fileList.length < 8">
+                    <i nz-icon nzType="plus"></i>
+                    <div style="margin-top: 8px;">Add image</div>
+                </div>
+            </nz-upload>
+        </nz-col>
+        <nz-col>
+            <button nz-button [nzType]="'primary'" (click)="handleUpload()">
+                <i nz-icon nzType="upload"></i> Save images
+            </button>
+        </nz-col>
+        <nz-col>
+            <button nz-button (click)="fetchImages()">Show all images</button>
+        </nz-col>
+    </nz-row>
+    <nz-row [nzGutter]="[16, 16]">
+        <nz-col *ngFor="let image of imageList">
+            <div style="position: relative;">
+                <img [src]="'data:image/png;base64,' + image.content" [alt]="image.filename"
+                    style="width: 200px; height: 200px; object-fit: cover; border-radius: 5px;" />
+                <button nz-button nzType="text" nzDanger (click)="handleDeleteImage(image.id)"
+                    style="position: absolute; top: 5px; right: 5px; background: rgba(255,255,255,0.7); border-radius: 50%;">
+                    <i nz-icon nzType="delete"></i>
+                </button>
+            </div>
+        </nz-col>
+    </nz-row>
+    <nz-modal [(nzVisible)]="previewVisible" nzFooter="null" (nzOnCancel)="handleCancel()">
+        <img *ngIf="previewImage" [src]="previewImage" alt="Preview" style="width: 100%" />
+    </nz-modal>
+</div>
