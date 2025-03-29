@@ -6,7 +6,7 @@ import DashboardPage from "./pages/DashboardPage";
 import CarouselPage from "./pages/CarouselPage";
 import LazyPage from "./pages/LazyPage";
 import DelayedFormPage from "./pages/DelayedFormPage";
-import GalleryPage from "./pages/Gallery";
+import GalleryPage from "./pages/GalleryPage";
 
 const App: React.FC = () => {
   return (
