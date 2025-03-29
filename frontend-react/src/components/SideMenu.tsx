@@ -24,6 +24,9 @@ const SideMenu: React.FC = () => {
                     <Menu.Item key="4">
                         <Link to="/delay">Delayed form</Link>
                     </Menu.Item>
+                    <Menu.Item key="5">
+                        <Link to="/gallery">Gallery</Link>
+                    </Menu.Item>
                 </Menu>
             )}
         </Sider>

@@ -6,6 +6,7 @@ import DashboardPage from "./pages/DashboardPage";
 import CarouselPage from "./pages/CarouselPage";
 import LazyPage from "./pages/LazyPage";
 import DelayedFormPage from "./pages/DelayedFormPage";
+import GalleryPage from "./pages/Gallery";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
             <Route path="/carousel" element={<CarouselPage />} />
             <Route path="/lazy" element={<LazyPage />} />
             <Route path="/delay" element={<DelayedFormPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
           </Routes>
         </Layout.Content>
       </Layout>
