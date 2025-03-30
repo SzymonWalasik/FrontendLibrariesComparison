@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { Table, Button, Modal, Input } from "antd";
 import { User } from "../interfaces/interfaces";
@@ -40,15 +40,15 @@ const DashboardPage = () => {
         }
     };
 
-    const handlePaginationChange = (page: number, size: number) => {
+    const handlePaginationChange = useCallback((page: number, size: number) => {
         setCurrentPage(page);
         setPageSize(size);
-    };
+    }, []);    
 
-    const columns = [
+    const columns = useMemo(() => [
         { title: "Name", dataIndex: "name", key: "name", sorter: true },
         { title: "Email", dataIndex: "email", key: "email" },
-    ];
+    ], []);
 
     return (
         <div>

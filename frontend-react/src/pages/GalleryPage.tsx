@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Upload, Button, Modal, Row, Col, UploadFile, message } from "antd";
 import { PlusOutlined, UploadOutlined, DeleteOutlined } from "@ant-design/icons";
 import axios from "axios";
@@ -50,22 +50,16 @@ const GalleryPage: React.FC = () => {
         setPreviewVisible(true);
     };
 
-    const handleDeleteImage = async (id: number) => {
+    const handleDeleteImage = useCallback(async (id: number) => {
         try {
-            if (id) {
-                await axios.delete(`${API_URL}/delete/${id}`);
-                message.success("Deleted image.");
-                setImageList(prev => prev.filter(img => img.id !== id));
-            } else {
-                console.error("No id provided for delete operation");
-                message.error("Failed deleting image. Invalid ID.");
-            }
+            await axios.delete(`${API_URL}/delete/${id}`);
+            message.success("Deleted image.");
+            setImageList(prev => prev.filter(img => img.id !== id));
         } catch (error) {
             console.error("Failed deleting image:", error);
             message.error("Failed deleting image.");
         }
-    };
-
+    }, []);
 
     return (
         <div style={{ padding: 20 }}>
